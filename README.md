@@ -42,6 +42,47 @@ for (int i=0; i<n; i++){
     }
 }
 ```
+## 최단거리
+### 벨만포드
+모든간선을 전부 확인 (음수 간선이 있어도 최적의 해 탐색)  
+v(정점)-1번 반복하여 최단거리 계산  
+1번더 즉 v번 탐색하면 음수 간선 순환 존재여부 확인 가능  
+```
+static boolean bellman_ford(){
+        for (int cnt=1; cnt<minCost.length; cnt++){
+            for (int start=1; start<minCost.length; start++){
+                for (Node node : map[start]){
+                    int dst = node.dst;
+                    int cost = node.cost;
+                    if (minCost[start] != Integer.MAX_VALUE && minCost[dst] > minCost[start] + cost) {
+                        if (cnt == minCost.length-1)
+                            return true;
+                        minCost[dst] = minCost[start] + cost;
+                    }
+                }
+            }
+        }
+        return false;
+}
+```
+
+### 플루드이드와샬
+모든 정점에서 모든 도착점에 대한 최단거리 계산  
+(시작 ~ 도착) 과 (시작 ~ 경유) + (경유 ~ 도착) 비교  
+주의점은 경유-시작-도착 순으로 3중 for문  
+```
+static void floyd_warshall(){
+        for (int via=1; via<minCost.length; via++){
+            for (int start=1; start<minCost.length; start++){
+                for (int dst=1; dst<minCost.length; dst++){
+                    if (minCost[start][via]!=Integer.MAX_VALUE && minCost[via][dst]!=Integer.MAX_VALUE && minCost[start][dst] > minCost[start][via] + minCost[via][dst])
+                        minCost[start][dst] = minCost[start][via] + minCost[via][dst];
+                }
+            }
+        }
+}
+```
+
 
 ## 문자열 알고리즘
 ### KMP 알고리즘
