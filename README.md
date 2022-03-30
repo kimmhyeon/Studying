@@ -3,13 +3,13 @@
 
 
 ## DP
-### 최장 증가 부분 수열 (LIS, Longest Increasing Subsequence)
+### LIS (Longest Increasing Subsequence, 최장 증가 부분 수열)
 이전 dp와 참고하여 더 크면 1증가하여 부여
 
 https://www.acmicpc.net/problem/11053
 ```
 for (int i = 0; i < arr.length; i++){
-	length[i] = 1;
+    length[i] = 1;
     for (int j = 0; j < i; j++){
         if(arr[i] > arr[j]){
             dp[i] = max(dp[i], dp[j] + 1);
@@ -18,8 +18,29 @@ for (int i = 0; i < arr.length; i++){
 }
 ```
 
+### LCS (Longest Common Subsequence, 최장 공통 부분 수열)
+
+```
+// 입력
+input1 = br.readLine();
+input2 = br.readLine();
+
+// 초기화
+dp = new int[input1.length()+1][input2.length()+1];
+	
+// LCS
+for (int i=1; i<=input1.length(); i++){
+    for (int j=1; j<=input2.length(); j++){
+	if(input1.charAt(i-1) == input2.charAt(j-1))
+	    dp[i][j] += 1 + dp[i-1][j-1];
+	else
+	    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
+    }
+}
+```
+
 ### 길찾기 경우의수
-dp를 이용하여 계산
+dp를 이용하여 계산  
 
 ### 냅섹문제
 (이전 무게의 가중치)와 (현재 아이템의 가중치 + 남은 무게는 dp참고) 최대값 비교
@@ -69,7 +90,7 @@ static boolean bellman_ford(){
 ### 플루드이드와샬
 모든 정점에서 모든 도착점에 대한 최단거리 계산  
 (시작 ~ 도착) 과 (시작 ~ 경유) + (경유 ~ 도착) 비교  
-주의점은 경유-시작-도착 순으로 3중 for문  
+경유-시작-도착 순으로 3중 for문  
 ```
 static void floyd_warshall(){
         for (int via=1; via<minCost.length; via++){
