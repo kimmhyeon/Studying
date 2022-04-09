@@ -21,34 +21,34 @@
 >>}
 >>```
 >>이분탐색 사용하면 수행시간 O(n log n)으로 단축 가능  
->>리스트의 가장 마지막 값 보다 크면 값 추가  
->>아니면 lower_bound()를 이용하여 해당 인덱스값 변경
+>>
 >>```java
 >>if (arr.size() == 0)
->>	arr.add(num);
->>else if (arr.get(arr.size()-1) < num)
->>	arr.add(num);
->>else
->>	arr.set(lowerBound(num), num);
->>
->>int lowerBound(int key){
->>	int start=0, end=arr.size()-1, idx=Integer.MAX_VALUE;
->>
->>        while (start <= end){
->>            int mid = (start+end)/2;
->>
->>            if (arr.get(mid) >= key){
->>                end = mid -1;
->>                idx = Integer.min(idx, mid);
->>            }
->>            else
->>                start = mid +1;
->>        }
->>        return idx;
->>}	
+>>    arr.add(num);
+>>else if (arr.get(arr.size()-1) < num)  // 리스트의 가장 마지막 값 보다 크면 추가
+>>    arr.add(num);
+>>else                                  // lower_bound()를 이용하여 해당 인덱스값 변경
+>>    arr.set(lowerBound(num), num);
 >>```
->>lower_bound() : 이진탐색기반, key값 보다 <U>크거나 같은</U> 첫 번째 주소 반환   
->>upper_bound() : 이진탐색기반, 처음으로 value값 <U>초과</U>하는 주소 반환
+>>>
+>>>lower_bound() : 이진탐색기반, key값 보다 <U>크거나 같은</U> 첫 번째 주소 반환   
+>>>upper_bound() : 이진탐색기반, 처음으로 value값 <U>초과</U>하는 주소 반환
+>>>```java
+>>>int lowerBound(int key){
+>>>    int start=0, end=arr.size()-1, idx=Integer.MAX_VALUE;
+>>>
+>>>    while (start <= end){
+>>>        int mid = (start+end)/2;
+>>>
+>>>        if (arr.get(mid) >= key){
+>>>            end = mid -1;
+>>>            idx = Integer.min(idx, mid);
+>>>        }
+>>>        else
+>>>            start = mid +1;
+>>>    return idx;
+>>>}	
+>>>```
 >
 >### LCS (Longest Common Subsequence, 최장 공통 부분 수열)
 >>
@@ -62,7 +62,7 @@
 >>	
 >>// LCS
 >>for (int i=1; i<=input1.length(); i++){
->>    for (int j=1; j<=input2.length(); j++){
+>>  for (int j=1; j<=input2.length(); j++){
 >>	if(input1.charAt(i-1) == input2.charAt(j-1))
 >>	    dp[i][j] += 1 + dp[i-1][j-1];
 >>	else
