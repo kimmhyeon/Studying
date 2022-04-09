@@ -62,11 +62,11 @@
 >>	
 >>// LCS
 >>for (int i=1; i<=input1.length(); i++){
->>  for (int j=1; j<=input2.length(); j++){
->>	if(input1.charAt(i-1) == input2.charAt(j-1))
->>	    dp[i][j] += 1 + dp[i-1][j-1];
->>	else
->>	    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
+>>    for (int j=1; j<=input2.length(); j++){
+>>        if(input1.charAt(i-1) == input2.charAt(j-1))
+>>            dp[i][j] += 1 + dp[i-1][j-1];
+>>        else
+>>            dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
 >>    }
 >>}
 >>```
@@ -81,15 +81,15 @@
 >>for (int i=0; i<n; i++){
 >>    // 무게마다
 >>    for (int j=0; j<=k; j++){
->>    	// 첫번째 아이템의 경우
->>	if (i==0 && j - itemList.get(i).weight >= 0)
->>	    dp[i][j] = itemList.get(i).value;
->>	// 2번째 아이템 부터
->>	else if (i > 0){
->>	    dp[i][j] = dp[i-1][j];
->>	    if (j - itemList.get(i).weight >= 0)
->>		dp[i][j] = Math.max(dp[i][j], itemList.get(i).value + dp[i-1][j - itemList.get(i).weight]);
->>		}
+>>        // 첫번째 아이템의 경우
+>>        if (i==0 && j - itemList.get(i).weight >= 0)
+>>            dp[i][j] = itemList.get(i).value;
+>>        // 2번째 아이템 부터
+>>        else if (i > 0){
+>>            dp[i][j] = dp[i-1][j];
+>>            if (j - itemList.get(i).weight >= 0)
+>>		          dp[i][j] = Math.max(dp[i][j], itemList.get(i).value + dp[i-1][j - itemList.get(i).weight]);
+>>        }
 >>    }
 >>}
 >>```
