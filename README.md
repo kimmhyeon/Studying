@@ -1,4 +1,4 @@
-# 알고리즘 공부
+# Java
 
 ## 주의점
 >StringTokenizer의 countTokens()는 O(len) -> 시간 잡아먹으므로 사용자제  
