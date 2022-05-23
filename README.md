@@ -237,4 +237,39 @@
 >>>
 >>>↑세로로 누적합 계산한 모습
 
-
+## Weighted-Union-Find
+> 집합을 합쳐 같은 집합에 속하는지 확인하는 알고리즘
+>```java
+>// init
+>static int[] parent = new int[MAX_SIZE];
+>for (int i=0; i<MAX_SIZE; i++)
+>    parent[i] = -1;  // 양수:부모 노드, 음수:본인이 부모이므로 깊이 표현
+>
+>// Find 함수
+>static void find(int num){
+>    if (parent[num] < 0){
+>        return num;
+>    else
+>        return parent[num] = find(parent[num]);
+>}
+>
+>// Union함수
+>static void union(int num1, int num2){
+>    num1 = find(num1);
+>    num2 = find(num2);
+>    
+>    // 이미 같은 집합인 경우
+>    if (num1 == num2)
+>        return;
+>    // num1이 더 깊은 경우, num1자식으로 num2 추가
+>    else if (num1 < num2){
+>        parent[num1] += num2;
+>        parent[num2] = num1;
+>    }
+>    // num2가 더 깊거나 높이가 같은경우, num2자식으로 num1 추가
+>    else {
+>        parent[num2] += num1;
+>        parent[num1] = num2;
+>    }
+>}
+>```
