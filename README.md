@@ -262,7 +262,7 @@
 >    if (num1 == num2)
 >        return;
 >    // num1이 더 깊은 경우, num1자식으로 num2 추가
->    else if (num1 < num2){
+>    else if (parent[num1] < parent[num2]){
 >        parent[num1] += num2;
 >        parent[num2] = num1;
 >    }
