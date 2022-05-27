@@ -1,6 +1,6 @@
 ## Java 주의점
->StringTokenizer의 countTokens()는 O(len) -> 시간 잡아먹으므로 사용자제  
->ArrayList의 get()은 O(1), LinkedList의 get()은 O(n) -> get() 사용할 일 있으면 ArrayList사용 추천  
+>1. StringTokenizer의 countTokens()는 O(len) -> 시간 잡아먹으므로 사용자제  
+>2. ArrayList의 get()은 O(1), LinkedList의 get()은 O(n) -> get() 사용할 일 있으면 ArrayList사용 추천  
 
 
 ## DP 예제
