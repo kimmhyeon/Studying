@@ -263,12 +263,12 @@
 >        return;
 >    // num1이 더 깊은 경우, num1자식으로 num2 추가
 >    else if (parent[num1] < parent[num2]){
->        parent[num1] += num2;
+>        parent[num1] += parent[num2];
 >        parent[num2] = num1;
 >    }
 >    // num2가 더 깊거나 높이가 같은경우, num2자식으로 num1 추가
 >    else {
->        parent[num2] += num1;
+>        parent[num2] += parent[num1];
 >        parent[num1] = num2;
 >    }
 >}
