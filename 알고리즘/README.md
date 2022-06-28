@@ -2,6 +2,8 @@
 >1. StringTokenizer의 countTokens()는 O(len) -> 시간 잡아먹으므로 사용자제  
 >2. ArrayList의 get()은 O(1), LinkedList의 get()은 O(n) -> get() 사용할 일 있으면 ArrayList사용 추천  
 
+## 트리 vs 그래프
+> 트리는 싸이클이 허용되지 않지만 그래프는 가능
 
 ## DP 예제
 >### LIS (Longest Increasing Subsequence, 최장 증가 부분 수열)
