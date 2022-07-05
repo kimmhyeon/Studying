@@ -110,10 +110,3 @@
 >> 소통과 협력 중시
 >> 점증적 개발
 >> 출시 주기를 짧게하고 다양한 요구 변화에 대응
-
-## RPA (Robotic Process Automation)
-> 반복적으로 일어나는 업무 프로세스를 자동화하는 것  
-
-## OCR (Optical Character Recognition)
-> 인간이 써 놓은 글씨를 인지하여 텍스트 데이터로 치환하는 기술
-> 
