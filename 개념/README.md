@@ -1,11 +1,37 @@
 # HTTP (Hyper-Text Transport Protocol)
-> HTML과 같은 하이퍼 텍스트 문서를 전송하기 위한 애플리케이션레이어 프로토콜
+> HTML과 같은 하이퍼 텍스트 문서를 전송하기 위한 애플리케이션레이어 프로토콜  
+> 
+> 주요 메소드 5가지
+> 1. GET : 자원을 받아올 때
+> 2. POST : 서버로 데이터 전달, 새로운 자원을 추가하거나 프로세스 처리
+> 3. PUT : 리소스가 있으면 대체하고 없으면 생성
+> 4. PATCH : PUT과 같지만 리소스 일부분만 변경가능함
+> 5. DELETE : 리소스 제거
+> 
+> 상태 코드
+> 1. 1xx (Informational) : 요청이 수신되어 처리중
+> 2. 2xx (Successful) : 요청 정상 처리
+> 3. 3xx (Redirection) : 요청을 완료하려면 추가행동 필요
+> 4. 4xx (Client Error) : 클라이언트 오류, 잘못된 문법 등 서버가 요청 수행 불가
+> 5. 5xx (Server Error) : 서버 오류, 서버가 정상 요청을 처리하지 못함
+> 
+> 상태 코드 종류
+> 1. 200 OK : 요청 성공
+> 2. 201 Created : 요청 성공해 새로운 리소스 생성됨
+> 3. 400 Bad Request : 클라이언트가 잘못된 요청을 해서 서버가 처리 불가능
+> 4. 401 Unauthorized : 클라이언트가 해당 리소스에 대한 인증 필요
+> 5. 403 Forbidden : 서버가 요청을 이해했지만 승인 거부
+> 6. 404 Not Found : 요청 리소스 찾을 수 없음
+> 7. 500 Internal Server Error : 서버 문제로 오류 발생
+> 8. 503 Service Unavailable : 서비스 이용 불가
+
+
 
 # REST
 > HTTP를 제대로 사용되지 못하는 모습에 안타까워 만들어진 웹의 장점을 최대한 활용할 수 있는 아키텍처
 > HTTP URI를 통해 자원을 명시하고 HTTP Method를 통해 해당 자원에 대한 CRUD를 적용하는 것  
 >> 특징
->> 1. Server-Client : 서로간의 의존성이 줄어든다.  
+>> 1. Client - Server 구조 : 서로간의 의존성이 줄어든다.  
 >> 2. Stateless : 쿠키를 저장하지 않고 들어오는 요청만 처리  
 >> 3. Cacheable : HTTP가 가진 캐시 기능 사용가능하다.  
 >> 4. Uniform Interface : 언어와 플랫폼 상관없이 사용가능  
